@@ -6,6 +6,7 @@ html, * {
 }
 
 h1 {
+    color: #20ff20;
     text-align: center;
     font-size: 5em;
 }
@@ -13,4 +14,8 @@ h1 {
 h2 {
     text-align: center;
     font-size: 2em;
+}
+
+a {
+    color: #20ff20;
 }
