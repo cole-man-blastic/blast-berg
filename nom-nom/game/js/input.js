@@ -1,13 +1,5 @@
 class Input {
   static #keysDown = new Set();
-  static #keysTapped = new Set();
-
-  /**
-   * Call once at the start if every frame.
-   */
-  static update() {
-    this.#keysTapped.clear();
-  }
 
   /**
    * Returns whether the given key is currently pressed.
@@ -18,6 +10,8 @@ class Input {
     return this.#keysDown.has(key);
   }
 
+  static #keysTapped = new Set();
+
   /**
    * Returns whether the given key was pressed in the last frame.
    * @param {string} key The key to test.
@@ -25,6 +19,13 @@ class Input {
    */
   static getKeyTapped(key) {
     return this.#keysTapped.has(key);
+  }
+
+  /**
+   * Call once at the end of each frame so only keys pressed within the last frame are considered tapped.
+   */
+  static clearTapped() {
+    this.#keysTapped.clear();
   }
 
   static {
